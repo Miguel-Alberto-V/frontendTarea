@@ -14,7 +14,7 @@ export default function Editar() {
   useEffect(() => {
     const fetchEvento = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/evento/${id}`); // Endpoint para obtener un evento por su ID
+        const response = await fetch(`${backendURL}/evento/${id}`); // Endpoint para obtener un evento por su ID
         if (!response.ok) {
           throw new Error('Error al obtener evento');
         }
@@ -26,7 +26,7 @@ export default function Editar() {
     };
 
     fetchEvento();
-  }, [id]);
+  }, [id, backendURL]);
 
   const handleInputChange = event => {
     const { name, value } = event.target;
